@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trilhaapp/pages/dados_cadastrais.dart';
 import 'package:trilhaapp/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -42,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                   'Já tem cadastro?',
                   style: TextStyle(fontSize: 26, color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 13,
                 ),
                 const Text(
@@ -71,10 +72,10 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextField(
                     obscureText: !passwordVisibility,
                     controller: senhaController,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                         hintText: "Senha",
-                        hintStyle: TextStyle(color: Colors.grey),
+                        hintStyle: const TextStyle(color: Colors.grey),
                         prefixIcon: const Icon(
                           Icons.lock,
                           color: Colors.purple,
@@ -93,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                             ))),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Padding(
@@ -102,15 +103,27 @@ class _LoginPageState extends State<LoginPage> {
                     width: double.infinity,
                     child: TextButton(
                       onPressed: () {
-                        if (emailController.text.trim() == "marconetsf@gmail.com" && senhaController.text.trim() == "amendoim")
-                        {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login efetuado com sucesso"), backgroundColor: Colors.lightGreen,));
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MyHomePage()));
+                        if (emailController.text.trim() ==
+                                "marconetsf@gmail.com" &&
+                            senhaController.text.trim() == "amendoim") {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            duration: Duration(seconds: 2),
+                            content: Text("Login efetuado com sucesso"),
+                            backgroundColor: Colors.lightGreen,
+                          ));
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const DadosCadastraisPage()));
                         } else {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Erro ao efetuar login"), backgroundColor: Colors.red,));
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text("Erro ao efetuar login"),
+                            backgroundColor: Colors.red,
+                          ));
                         }
-                        print(emailController.text);
-                        print(senhaController.text);
                       },
                       style: ButtonStyle(
                           backgroundColor:

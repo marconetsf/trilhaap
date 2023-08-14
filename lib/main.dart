@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple.shade900),
         useMaterial3: true,
       ),
-      home: const DadosCadastraisPage(),
+      home: const LoginPage(),
     );
   }
 }
